@@ -1,10 +1,13 @@
 // TODO: write code here
-let index = null;
+
 const text = document.querySelector('.statistics');
-let indexText = 0;
+const btnNewGame = document.querySelector('.new__game');
+const modal = document.querySelector('.modal__window');
 const arrCell = document.querySelectorAll('.box-cell');
 const activeCell = Math.floor(Math.random() * arrCell.length);
 let gameOverIndex = 0;
+let index = null;
+let indexText = 0;
 
 function randomPosition() {
   if (index === null) {
@@ -20,7 +23,7 @@ function randomPosition() {
     arrCell[index].classList.add('box__cell-active');
   }
 }
-setInterval(randomPosition, 1000);
+let interval = setInterval(randomPosition, 1000);
 
 arrCell.forEach((item) => {
   item.addEventListener('click', (e) => {
@@ -30,8 +33,26 @@ arrCell.forEach((item) => {
     } else {
       gameOverIndex += 1;
       if (gameOverIndex === 5) {
-        alert('GameOver');
+        clear();
       }
     }
   });
+});
+
+function clear() {
+  arrCell.forEach((item) => {
+    if (item.classList.contains('box__cell-active')) {
+      item.classList.remove('box__cell-active');
+    }
+  });
+  clearInterval(interval);
+  modal.style.display = 'flex';
+}
+
+btnNewGame.addEventListener('click', () => {
+  modal.style.display = 'none';
+  gameOverIndex = 0;
+  indexText = 0;
+  text.innerHTML = `Очков ${indexText}`;
+  interval = setInterval(randomPosition, 1000);
 });
