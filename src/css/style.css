@@ -1,12 +1,17 @@
 body {
+  margin-top: 40px;
   color: #999;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .box {
+  margin-right: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: auto;
   width: 650px;
   height: 600px;
   background-color: crimson;
@@ -25,4 +30,43 @@ body {
   background-image: url(../assets/goblin.png);
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.statistics {
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}
+
+.modal__window {
+  display: flex;
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  overflow-y: auto;
+}
+
+.popups {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: burlywood;
+  color: crimson;
+  font-size: 25px;
+  height: 200px;
+}
+
+.new__game {
+  display: inline-block;
+  margin: 0 80px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
