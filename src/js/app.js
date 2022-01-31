@@ -9,16 +9,6 @@ let gameOverIndex = 0;
 let index = null;
 let indexText = 0;
 
-function clear() {
-  arrCell.forEach((item) => {
-    if (item.classList.contains('box__cell-active')) {
-      item.classList.remove('box__cell-active');
-    }
-  });
-  clearInterval(interval);
-  modal.style.display = 'flex';
-}
-
 function randomPosition() {
   if (index === null) {
     index = Math.floor(Math.random() * arrCell.length);
@@ -34,6 +24,16 @@ function randomPosition() {
   }
 }
 let interval = setInterval(randomPosition, 1000);
+
+function clear() {
+  arrCell.forEach((item) => {
+    if (item.classList.contains('box__cell-active')) {
+      item.classList.remove('box__cell-active');
+    }
+  });
+  clearInterval(interval);
+  modal.style.display = 'flex';
+}
 
 arrCell.forEach((item) => {
   item.addEventListener('click', (e) => {
