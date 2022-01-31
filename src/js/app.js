@@ -9,6 +9,16 @@ let gameOverIndex = 0;
 let index = null;
 let indexText = 0;
 
+function clear() {
+  arrCell.forEach((item) => {
+    if (item.classList.contains('box__cell-active')) {
+      item.classList.remove('box__cell-active');
+    }
+  });
+  clearInterval(interval);
+  modal.style.display = 'flex';
+}
+
 function randomPosition() {
   if (index === null) {
     index = Math.floor(Math.random() * arrCell.length);
@@ -38,16 +48,6 @@ arrCell.forEach((item) => {
     }
   });
 });
-
-function clear() {
-  arrCell.forEach((item) => {
-    if (item.classList.contains('box__cell-active')) {
-      item.classList.remove('box__cell-active');
-    }
-  });
-  clearInterval(interval);
-  modal.style.display = 'flex';
-}
 
 btnNewGame.addEventListener('click', () => {
   modal.style.display = 'none';
